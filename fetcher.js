@@ -8,8 +8,10 @@ const fetch = function(path, page) {
   request(page, (error, response, body) => {
     if (error) {
       console.log('The was an error:', error);
+      return;
     } else if (response.statusCode !== 200) {
       console.log('Something went wrong:', response && response.statusCode);
+      return;
     } else {
       fs.access(path, (err) => { 
         if (err) {
